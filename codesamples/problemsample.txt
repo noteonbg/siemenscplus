@@ -1,0 +1,54 @@
+Requirements:
+Component Classes:
+
+Define three classes: Resistor, Capacitor, and Inductor.
+Each class should have attributes to store the value of the component (e.g., resistance for Resistor, capacitance for Capacitor, and inductance for Inductor).
+Provide methods to set and get these values.
+Circuit Class:
+
+Define a class Circuit that can contain a collection of Resistor, Capacitor, and Inductor objects.
+Implement methods to add components to the circuit.
+Implement methods to calculate the equivalent resistance, capacitance, or inductance when components are connected in series or parallel.
+Series and Parallel Calculations:
+
+Series Connection:
+For resistors in series: 
+ 
+User Interface:
+
+Implement a command-line interface that allows the user to:
+Add components to the circuit.
+Specify the type of connection (series or parallel).
+Calculate and display the equivalent values based on the connection type.
+Error Handling:
+
+Handle cases where the user might input invalid values or try to perform calculations on an empty circuit.
+
+sample code may be...
+
+#include "Circuit.h" // Assume this header contains your classes
+
+int main() {
+    Circuit myCircuit;
+
+    Resistor r1(100); // 100 ohms
+    Resistor r2(200); // 200 ohms
+
+    Capacitor c1(0.01); // 0.01 Farads
+    Capacitor c2(0.02); // 0.02 Farads
+
+    myCircuit.addComponent(r1);
+    myCircuit.addComponent(r2);
+    myCircuit.addComponent(c1);
+    myCircuit.addComponent(c2);
+
+    // Example of series connection for resistors
+    myCircuit.calculateEquivalentResistance("series");
+    // Example of parallel connection for capacitors
+    myCircuit.calculateEquivalentCapacitance("parallel");
+
+    return 0;
+}
+
+
+

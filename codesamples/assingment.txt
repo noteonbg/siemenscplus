@@ -1,0 +1,30 @@
+1. 
+Write a program that calculates the sum of squares of
+ elements in a given vector using a lambda expression 
+ with std::accumulate.
+
+2.
+Write a program that takes a vector of integers and filters out
+ the odd numbers using std::copy_if with a lambda expression.
+
+ 3.
+ Write a program that filters out components from a vector based
+  on a condition using std::remove_if with a lambda expression.
+
+  4.
+  mplement a custom algorithm using lambda expressions, such as
+   finding the maximum element, counting occurrences of a
+    value, or finding the average of elements in a vector.
+	
+5. implement a calculator which does addition, subtraction, multiplication
+and division for integers and floats . think thru various approaches
+which is best approach.
+
+6. go thru the code base given and look out the style of c++ programming
+and are you familiar with the syntaxes given.
+
+7. copy paste some examples on observer design pattern, proxy design pattern
+and factory design pattern.
+
+
+
