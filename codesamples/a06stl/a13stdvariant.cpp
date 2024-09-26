@@ -7,7 +7,7 @@
 
 /*
 
-std::variant is a powerful feature introduced in C++17 that allows you to create a type-safe union, enabling a variable to hold one of several specified types. Here are some key reasons to use std::variant in your C++ code:
+std::variant is a powerful feature introduced in C++17 that allows you to create a type-safe union, enabling a variable to hold one of several specified types. 
 
 */
 

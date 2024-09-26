@@ -23,7 +23,7 @@ T minimum(const T& lhs, const T& rhs)
 int main()
 {
 
-int result = minimum(2,3);
+int result = minimum(2,3); //instantiating the template
 double dresult = minimum<double>(2.3,4.3);
 double doubleArray[]={2,3};
 char arrayArray[]={'a','b'};

@@ -31,7 +31,7 @@ int main()
 
   std::sort(cars.begin(), cars.end(),
     // Capture @comparisons by reference.
-    [&comparisons](const auto& a, const auto& b) {
+    [&comparisons](const auto& a, const auto& b,const auto &c) {
       // We captured comparisons by reference. We can modify it without "mutable".
       ++comparisons;
 

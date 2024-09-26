@@ -4,6 +4,8 @@
 #include <cstring> // For std::strlen and std::strcpy
 #include <iostream>
 
+
+//person X is writing this
 class HVACUnit {
 public:
     // Constructor
@@ -92,6 +94,8 @@ private:
 
 #include "HVACUnit.h"
 
+
+//person Y writing this
 int main() {
     HVACUnit unit1("Heater", 70.0f);
     std::cout << unit1.getName() << " Temperature: " << unit1.getTemperature() << "°F" << std::endl;

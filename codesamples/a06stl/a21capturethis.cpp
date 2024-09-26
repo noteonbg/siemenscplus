@@ -1,4 +1,4 @@
-#if 0
+#if 1
 // function_lambda_expression.cpp
 // compile with: /EHsc /W4
 #include <algorithm>
@@ -15,9 +15,12 @@ public:
 
     // Prints the product of each element in a vector object
     // and the scale value to the console.
-    void ApplyScale(const vector<int>& v) const
+    void ApplyScale(const vector<int>& v) 
     {
-        for_each(v.begin(), v.end(), [=](int n) { cout << n * _scale << endl; });
+        //for_each(v.begin(), v.end(), [=](int n) { cout << n * _scale << endl; });
+        auto x = [=](){ cout << _scale; };
+        x();
+
     }
 
 private:

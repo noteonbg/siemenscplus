@@ -35,7 +35,7 @@ int main() {
 
 // Function template to multiply two values
 template <class A, class B>
-void MultiplyAB(A a, B b, decltype(a*b)& output) {
+void MultiplyAB(A a, B b, decltype(a+b)& output) {
     output = a * b;
 }
 
