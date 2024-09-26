@@ -12,7 +12,8 @@ class StateMachine {
 public:
     StateMachine() : currentState(State::Idle) {}
 
-    void setStateTransition(State currentState, State nextState, std::function<void()> transitionFunction) {
+    void setStateTransition(State currentState, State nextState,
+     std::function<void()> transitionFunction) {
         transitions[currentState] = {nextState, transitionFunction};
     }
 
@@ -44,6 +45,7 @@ int main() {
     fsm.setStateTransition(State::Idle, State::Processing, []() {
         std::cout << "Transitioning from Idle to Processing." << std::endl;
     });
+
 
     fsm.setStateTransition(State::Processing, State::Completed, []() {
         std::cout << "Transitioning from Processing to Completed." << std::endl;

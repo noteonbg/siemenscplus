@@ -32,8 +32,10 @@ int main() {
     // Define a stateful lambda as an event handler
     int eventCount = 0;
     eventSystem.registerHandler([&eventCount]() {
-        std::cout << "Event occurred. Total events: " << ++eventCount << std::endl;
+        std::cout << "Event occurred. Total events: " << ++eventCount 
+        << std::endl;
     });
+    
 
 
     

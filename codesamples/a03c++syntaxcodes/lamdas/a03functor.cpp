@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+#if 0
 // Functor class for addition
 class Add {
 public:
@@ -16,9 +17,12 @@ int main() {
     return 0;
 }
 
+#endif
 
-#if 0
+
+#if 1
 #include <iostream>
+#include <vector>
 #include <algorithm>
 using namespace std;
 

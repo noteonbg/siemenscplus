@@ -7,7 +7,8 @@ int main() {
 
     // Define a stateful lambda to calculate cumulative sum of signal
     int sum = 0;
-    auto cumulative_sum = [&sum](int value) {
+    auto cumulative_sum = 
+    [&sum](int value) {
         sum += value;
         return sum;
     };
@@ -16,7 +17,9 @@ int main() {
 
     // Apply the stateful lambda to the signal
     std::vector<int> cumulative_result;
-    std::transform(signal.begin(), signal.end(), std::back_inserter(cumulative_result), cumulative_sum);
+    std::transform(signal.begin(), signal.end(), 
+    std::back_inserter(cumulative_result),
+     cumulative_sum);
 
     
 

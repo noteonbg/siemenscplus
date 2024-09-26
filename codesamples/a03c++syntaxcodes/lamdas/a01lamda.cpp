@@ -9,14 +9,17 @@
 // throw_lambda_expression.cpp
 int main() // C4297 expected
 {
-   []() noexcept { std::cout << "hi"; throw 5; };
+   []() noexcept { std::cout << "hi"; throw 5; };  //bad example
 }
 
+//person who defined the function, person who called the function
+//is same.. that means we dont need lamda..
 #endif
 
 
 
-#if 0
+
+#if 1
 // captures_lambda_expression.cpp
 
 #include <iostream>
