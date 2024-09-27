@@ -1,3 +1,17 @@
+recording links.
+day 1 recording links
+Meeting Recording:
+https://us02web.zoom.us/rec/share/9HPevFgy91NwC1njyRXCKRrLyU692y0AulBuNuf7a28qxlFHnyCa4PfQe_IydN6_.iU2f-qQUq-5JV9me
+Passcode: Seimcp@17
+
+Day 2 recording link.
+Meeting Recording:
+https://us02web.zoom.us/rec/share/WFMQj8IQTNmGF5Og2-ocPrjpjkd2cSNVLqWfRty9XT008uNLh7wShhtMJRUhypJD.8S3pN_6dXy__tqZT
+Passcode: Seimcp@26
+
+
+
+
 
 
 queries 
