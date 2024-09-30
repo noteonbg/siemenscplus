@@ -66,21 +66,34 @@ int main() {
 
 /*
 
+
+Non-owning Reference: std::span does not assume ownership of the data it refers to. It acts as a wrapper around the existing data.
+Lightweight: std::span is designed to be efficient, employing a small memory footprint. Typically, it consists of two pointers (begin and end) and a size value.
+Contiguous Sequence: std::span is compatible only with contiguous data structures such as arrays, std::vector, or std::array. It cannot be utilized with non-contiguous data structures like linked lists.
+Safety Measures: std::span incorporates bounds checking, ensuring secure access to the underlying data. It helps prevent common errors such as buffer overflows or underflows.
+
 No Overhead: std::span does not manage memory, so it has zero overhead compared to raw pointers. It provides a view into existing data without requiring any additional copies.
-Efficient Access: Since std::span provides direct access to elements, you can benefit from performance similar to that of raw arrays while maintaining better abstraction.
+Efficient Access: Since std::span provides direct access to elements,
+ you can benefit from performance similar to that of raw arrays 
+ while maintaining better abstraction.
 
 Simplicity and Safety
-Avoids Pointer Arithmetic: std::span abstracts away the need for manual pointer arithmetic, making code easier to read and less error-prone.
+Avoids Pointer Arithmetic: std::span abstracts away the
+ need for manual pointer arithmetic, making code
+  easier to read and less error-prone.
 
-Bounds Checking: While std::span itself does not perform bounds checking by default, it provides member functions like at() that do, enhancing safety when accessing elements.
+Bounds Checking: While std::span itself does not perform bounds
+ checking by default, it provides member functions like at() that do, enhancing safety when accessing elements.
 
 2. Flexibility
-Variety of Input Types: std::span can be constructed from various containers (like std::array, std::vector, C-style arrays, etc.), which allows for flexible APIs that accept different data structures without needing to overload functions.
+Variety of Input Types:
+ std::span can be constructed from various containers (like std::array, std::vector, C-style arrays, etc.), which allows for flexible APIs that accept different data structures without needing to overload functions.
 
 Subranges: You can create subranges easily, which is useful for working with parts of a container without copying data.
 
 3. Performance
-No Overhead: std::span does not manage memory, so it has zero overhead compared to raw pointers. It provides a view into existing data without requiring any additional copies.
+No Overhead: std::span does not manage memory, so it has zero
+ overhead compared to raw pointers. It provides a view into existing data without requiring any additional copies.
 
 Efficient Access: Since std::span provides direct access to elements, you can benefit from performance similar to that of raw arrays while maintaining better abstraction.
 

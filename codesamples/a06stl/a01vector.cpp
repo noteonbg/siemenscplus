@@ -50,6 +50,8 @@ int main() {
     deviceList.push_back(MedicalDomain::MedicalDevice("Thermometer", "T98765"));  // Original serial number
     deviceList.push_back(MedicalDomain::MedicalDevice("Pulse Oximeter", "POX54321"));
 
+    
+
 
 #if 1
     // Modify the serial number of the thermometer

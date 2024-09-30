@@ -15,7 +15,7 @@ bool IsOdd(int i) { return i % 2; }
 // Driver code
 int main()
 {
-	vector<int> vec{ 10, 25, 40, 55 };
+	vector<int> vec{ 11, 25, 41, 55 };
 
 	// Iterator to store the position of element found
 	vector<int>::iterator it;

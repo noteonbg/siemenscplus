@@ -1,6 +1,8 @@
 #include <iostream>
 #include <set>
 
+
+#if 0
 int main() {
     std::set<int> mySet = {6, 10, 5, 1}; // Defining a set with values
     for (const auto& val : mySet) {
@@ -10,8 +12,10 @@ int main() {
     return 0;
 }
 
+#endif
 
-#if 0
+
+#if 1
 
 #include <iostream>
 #include <set>
@@ -37,7 +41,10 @@ int main() {
     std::set<Point2D> pointSet;
 
     // Insert some Point2D objects
-    pointSet.insert(Point2D(2, 3));
+    ? y =pointSet.insert(Point2D(2, 3));
+    
+
+
     pointSet.insert(Point2D(5, 1));
     pointSet.insert(Point2D(3, 4));
 
