@@ -1,7 +1,7 @@
 #include <iostream>
 #include <memory> // Include the <memory> header for unique_ptr
 
-#if 0
+#if 1
 struct B
 {
     virtual ~B() = default;
@@ -32,7 +32,7 @@ int main()
 {
     //we have dynamically allocated memory on heap
     {
-    //std::unique_ptr<B> up(new B());
+   // std::unique_ptr<B> up(new B());
     std::unique_ptr<D> up =std::make_unique<D>(2,3);
     freak(std::move(up));
    //up->bar();

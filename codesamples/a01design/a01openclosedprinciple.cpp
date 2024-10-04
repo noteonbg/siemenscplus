@@ -5,13 +5,14 @@
 #include <vector>
 #include <memory>
 
-// Abstract base class
+// Deivce interface
 class Device {
 public:
     virtual ~Device() = default;
     virtual void turnOn() = 0;
     virtual void turnOff() = 0;
 };
+
 
 // Light class
 class Light : public Device {
@@ -40,7 +41,8 @@ public:
 // Fan class
 class Fan : public Device {
 public:
-    void turnOn() override {
+    
+    void turnOn() override  {
         std::cout << "Fan is turned on" << std::endl;
     }
 

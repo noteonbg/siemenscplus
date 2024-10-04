@@ -1,6 +1,6 @@
 #include <iostream>
 
-#if 0
+#if 1
 // Interface for printing documents
 class Printer {
 public:
