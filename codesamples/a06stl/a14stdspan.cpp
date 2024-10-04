@@ -70,7 +70,9 @@ int main() {
 Non-owning Reference: std::span does not assume ownership of the data it refers to. It acts as a wrapper around the existing data.
 Lightweight: std::span is designed to be efficient, employing a small memory footprint. Typically, it consists of two pointers (begin and end) and a size value.
 Contiguous Sequence: std::span is compatible only with contiguous data structures such as arrays, std::vector, or std::array. It cannot be utilized with non-contiguous data structures like linked lists.
-Safety Measures: std::span incorporates bounds checking, ensuring secure access to the underlying data. It helps prevent common errors such as buffer overflows or underflows.
+Safety Measures: std::span incorporates bounds checking,
+ ensuring secure access to the underlying data. 
+ It helps prevent common errors such as buffer overflows or underflows.
 
 No Overhead: std::span does not manage memory, so it has zero overhead compared to raw pointers. It provides a view into existing data without requiring any additional copies.
 Efficient Access: Since std::span provides direct access to elements,
