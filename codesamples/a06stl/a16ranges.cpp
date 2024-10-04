@@ -169,4 +169,43 @@ We mark all pending tasks (value == false) as completed (value = true). This is 
 
 */
 
+/*
+The | operator in the context of C++20's ranges library is used to apply "range adaptors" in a pipelined manner. It’s part of a new paradigm introduced by the ranges library that lets you compose multiple operations on ranges in a clean and readable way, similar to how functional programming languages like Haskell or Python handle operations on sequences.
+
+What the | Operator Does:
+The | operator, when used with ranges, is essentially piping the result of one operation into the next. This makes code more declarative and avoids the need for nested function calls or manual iteration through containers.
+
+Breakdown:
+Range Adaptors: A "range adaptor" is a function (or lambda) that takes a range and returns a new range (a view) that represents a transformed or filtered version of the original range.
+Pipe Operator (|): The | operator is used to chain these adaptors in a readable, left-to-right fashion.
+
+
+*/
+
+#endif
+
+#if 0
+
+#include <iostream>
+#include <ranges>
+#include <vector>
+#include <algorithm>
+
+int main() {
+    std::vector<int> numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    // Chaining filters and transformations using `|`
+    auto evenSquares = numbers 
+        | std::ranges::views::filter([](int n) { return n % 2 == 0; })   // Filter only even numbers
+        | std::ranges::views::transform([](int n) { return n * n; });   // Transform to square the even numbers
+
+    // Output the result
+    for (int n : evenSquares) {
+        std::cout << n << " ";  // Outputs: 4 16 36 64 100
+    }
+    
+    return 0;
+}
+
+
 #endif
