@@ -1,0 +1,128 @@
+
+
+
+Problem Statement: Circuit Component Management System
+
+You are developing a Circuit Component Management System for an Electronic Design Automation (EDA) tool. This system will help engineers manage various electronic components (resistors, capacitors, and transistors) and perform analysis tasks.
+
+Requirements
+
+1. Component Storage:
+   - Use an appropriate STL container to store a list of components. Each component should have the following attributes:
+     - Type (e.g., Resistor, Capacitor, Transistor)
+     - Value (e.g., resistance in ohms, capacitance in farads)
+     - Identifier (a unique string for each component)
+
+2. Searching and Filtering:
+   - Implement functionality to search for components by type or value. Use STL algorithms such as `std::find_if` to filter components based on user-defined criteria (e.g., all resistors greater than a specific resistance value).
+
+3. Sorting Components:
+   - Allow users to sort components based on their values or identifiers. Utilize STL sorting algorithms like `std::sort`. Users should be able to specify the sorting criterion (by value or by identifier).
+
+4. Statistics:
+   - Implement functions to calculate statistics such as:
+     - The total number of components.
+     - The average value of all components of a specific type.
+     - The maximum and minimum values of components of a specific type. Use STL algorithms such as `std::accumulate`, `std::max_element`, and `std::min_element`.
+
+5. Iterators:
+   - Provide functionality to iterate through the components using STL iterators. Users should be able to print details of all components.
+
+Example Classes
+
+Component Class
+
+cpp
+class Component {
+public:
+    std::string id;
+    std::string type;  // e.g., "Resistor", "Capacitor", "Transistor"
+    double value;      // e.g., resistance in ohms, capacitance in farads
+
+    Component(const std::string& id, const std::string& type, double value)
+        : id(id), type(type), value(value) {}
+};
+
+
+CircuitManager Class
+
+cpp
+include <vector>
+include <algorithm>
+include <numeric>
+include <iostream>
+
+class CircuitManager {
+private:
+    std::vector<Component> components;
+
+public:
+    void addComponent(const Component& comp);
+    void displayComponents() const;
+    std::vector<Component> filterByType(const std::string& type) const;
+    void sortComponentsByValue();
+    double calculateAverageValue(const std::string& type) const;
+    // Other statistics functions...
+};
+
+
+Key Functions to Implement
+
+1. Add Component:
+   cpp
+   void CircuitManager::addComponent(const Component& comp) {
+       components.push_back(comp);
+   }
+   
+
+2. Display Components:
+   cpp
+   void CircuitManager::displayComponents() const {
+       for (const auto& comp : components) {
+           std::cout << "ID: " << comp.id << ", Type: " << comp.type 
+                     << ", Value: " << comp.value << std::endl;
+       }
+   }
+   
+
+3. Filter by Type:
+   cpp
+   std::vector<Component> CircuitManager::filterByType(const std::string& type) const {
+       std::vector<Component> result;
+       std::copy_if(components.begin(), components.end(), std::back_inserter(result),
+                    [&type](const Component& comp) { return comp.type == type; });
+       return result;
+   }
+   
+
+4. Sort Components:
+   cpp
+   void CircuitManager::sortComponentsByValue() {
+       std::sort(components.begin(), components.end(), 
+                 [](const Component& a, const Component& b) {
+                     return a.value < b.value;
+                 });
+   }
+   
+
+5. Calculate Average Value:
+   cpp
+   double CircuitManager::calculateAverageValue(const std::string& type) const {
+       std::vector<Component> filtered = filterByType(type);
+       double total = std::accumulate(filtered.begin(), filtered.end(), 0.0,
+                                       [](double sum, const Component& comp) {
+                                           return sum + comp.value;
+                                       });
+       return filtered.empty() ? 0.0 : total / filtered.size();
+   }
+   
+
+
+
+This Circuit Component Management System may help in  practicing core STL concepts in C++, 
+
+- Containers: Using `std::vector` for dynamic storage.
+- Algorithms: Utilizing `std::sort`, `std::find_if`, `std::accumulate`, etc.
+- Iterators: Employing STL iterators for traversing collections.
+- Lambda Functions: Leveraging lambdas for custom sorting and filtering criteria.
+
