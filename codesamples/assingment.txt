@@ -23,8 +23,20 @@ which is best approach.
 6. go thru the code base given and look out the style of c++ programming
 and are you familiar with the syntaxes given.
 
-7. copy paste some examples on observer design pattern, proxy design pattern
+7. demonstrate operations on vector, array , map including sorting based
+on criteria, stick to input parameters picture while writing the code.
+
+
+8. copy paste some examples on observer design pattern, proxy design pattern
 and factory design pattern.
+
+9. see if you can fill up problemsample.txt and code.
+
+10.see if you can fill up problemstatement2.txt and code.
+
+
+
+
 
 
 

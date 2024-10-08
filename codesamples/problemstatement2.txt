@@ -1,0 +1,93 @@
+Problem Statement: Electronic Design Automation Tool
+
+You are tasked with developing an Electronic Design Automation (EDA) tool to assist engineers in designing and simulating integrated circuits (ICs). The tool should support the following functionalities:
+
+1. Component Management:
+   - Different types of components (e.g., resistors, capacitors, transistors) need to be managed. Each component should have properties and behaviors.
+
+2. Simulation Monitoring:
+   - Users need to observe changes in simulation results in real-time. They should be able to subscribe to simulation updates to receive notifications.
+
+3. Access Control:
+   - Some components might be sensitive and require access control. Implement a proxy to manage permissions when accessing these components.
+
+4. Template-Based Simulation:
+   - Users should be able to define different simulation strategies (e.g., DC analysis, AC analysis) using templates, allowing for easy extension and reusability.
+
+5. Component Visualization:
+   - The tool should allow for enhanced visualization of components. Users can decorate components to add additional visual features (e.g., highlighting, tooltips) without changing their core functionality.
+
+Design Requirements
+
+1. Factory Pattern:
+   - Implement a factory to create different types of components (e.g., `ComponentFactory` that produces `Resistor`, `Capacitor`, `Transistor` objects).
+
+2. Observer Pattern:
+   - Create an observer interface (e.g., `SimulationObserver`) that can be implemented by classes that want to receive updates on simulation changes. The simulation engine will notify all registered observers when state changes occur.
+
+3. Proxy Pattern:
+   - Use a proxy class (e.g., `ComponentProxy`) to control access to sensitive components. The proxy should manage permissions and ensure that only authorized users can modify component properties.
+
+4. Template Pattern:
+   - Define an abstract class for simulation strategies (e.g., `SimulationTemplate`) with template methods for `setup()`, `run()`, and `cleanup()`. Concrete strategies should extend this class and provide specific implementations.
+
+5. Decorator Pattern:
+   - Implement decorators for visual components (e.g., `ComponentDecorator`) that allow users to add visual features to components at runtime without altering their fundamental behavior.
+
+Example Classes
+
+- Factory: 
+ cpp
+  class ComponentFactory {
+  public:
+      static std::unique_ptr<Component> createComponent(const std::string& type);
+  };
+ 
+
+- Observer:
+ cpp
+  class SimulationObserver {
+  public:
+      virtual void update(const SimulationState& state) = 0;
+  };
+ 
+
+- Proxy:
+ cpp
+  class ComponentProxy {
+  private:
+      std::shared_ptr<Component> realComponent;
+      User currentUser; // User accessing the component
+  public:
+      ComponentProxy(std::shared_ptr<Component> component, User user);
+      // Access methods with permission checks
+  };
+ 
+
+- Template:
+ cpp
+  class SimulationTemplate {
+  public:
+      void runSimulation() {
+          setup();
+          execute();
+          cleanup();
+      }
+  protected:
+      virtual void setup() = 0;
+      virtual void execute() = 0;
+      virtual void cleanup() = 0;
+  };
+ 
+
+- Decorator:
+ cpp
+  class ComponentDecorator : public Component {
+  protected:
+      std::shared_ptr<Component> component;
+  public:
+      ComponentDecorator(std::shared_ptr<Component> comp) : component(comp) {}
+      // Override methods to add functionality
+  };
+ 
+
