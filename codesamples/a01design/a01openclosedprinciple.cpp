@@ -14,6 +14,8 @@ public:
 };
 
 
+
+
 // Light class
 class Light : public Device {
 public:

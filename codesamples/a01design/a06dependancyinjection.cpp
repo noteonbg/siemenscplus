@@ -39,6 +39,7 @@ public:
 
 // Client examples
 class CircuitDesigner {
+//CircutDesiner   depends on IACSimulator for function  analyzecircuit
 public:
 //dependancy injection
     void analyzeCircuit(IACSimulator& simulator) {

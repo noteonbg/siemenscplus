@@ -1,0 +1,172 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+// Class representing a Doctor
+class Doctor {
+public:
+    Doctor(const std::string& name, const std::string& specialty)
+        : name(name), specialty(specialty) {}
+
+    void display() const {
+        std::cout << "Doctor Name: " << name << ", Specialty: " << specialty << std::endl;
+    }
+
+private:
+    std::string name;
+    std::string specialty;
+};
+
+// Class representing a Department
+class Department {
+public:
+    Department(const std::string& name) : name(name) {}
+
+    void addDoctor(const Doctor& doctor) {
+        doctors.push_back(doctor);
+    }
+
+    void display() const {
+        std::cout << "Department: " << name << std::endl;
+        for (const auto& doctor : doctors) {
+            doctor.display();
+        }
+    }
+
+private:
+    std::string name;
+    std::vector<Doctor> doctors;  // Aggregation relationship
+};
+
+// Class representing a Hospital
+class Hospital {
+public:
+    Hospital(const std::string& name) : name(name) {}
+
+    void addDepartment(const Department& department) {
+        departments.push_back(department);
+    }
+
+    void display() const {
+        std::cout << "Hospital: " << name << std::endl;
+        for (const auto& department : departments) {
+            department.display();
+        }
+    }
+
+private:
+    std::string name;
+    std::vector<Department> departments;  // Aggregation relationship
+};
+
+int main() {
+    // Creating doctors
+    Doctor doc1("Alice Smith", "Cardiology");
+    Doctor doc2("Bob Johnson", "Neurology");
+    Doctor doc3("Catherine Lee", "Pediatrics");
+
+    // Creating departments and adding doctors
+    Department cardiology("Cardiology");
+    cardiology.addDoctor(doc1);
+
+    Department neurology("Neurology");
+    neurology.addDoctor(doc2);
+
+    Department pediatrics("Pediatrics");
+    pediatrics.addDoctor(doc3);
+
+    // Creating hospital and adding departments
+    Hospital myHospital("City Medical Center");
+    myHospital.addDepartment(cardiology);
+    myHospital.addDepartment(neurology);
+    myHospital.addDepartment(pediatrics);
+
+    // Displaying the structure
+    myHospital.display();
+
+    return 0;
+}
+
+#if 0
+
+#include <iostream>
+#include <vector>
+#include <string>
+
+// Class representing an Engine
+class Engine {
+public:
+    Engine(const std::string& type, int horsepower)
+        : type(type), horsepower(horsepower) {}
+
+    void display() const {
+        std::cout << "Engine Type: " << type << ", Horsepower: " << horsepower << std::endl;
+    }
+
+private:
+    std::string type;
+    int horsepower;
+};
+
+// Class representing a Car
+class Car {
+public:
+    Car(const std::string& model, const Engine& engine)
+        : model(model), engine(engine) {}
+
+    void display() const {
+        std::cout << "Car Model: " << model << std::endl;
+        engine.display();
+    }
+
+private:
+    std::string model;
+    Engine engine;  // Composition relationship
+};
+
+// Class representing a Dealership
+class Dealership {
+public:
+    Dealership(const std::string& name) : name(name) {}
+
+    void addCar(const Car& car) {
+        cars.push_back(car);
+    }
+
+    void display() const {
+        std::cout << "Dealership: " << name << std::endl;
+        for (const auto& car : cars) {
+            car.display();
+        }
+    }
+
+private:
+    std::string name;
+    std::vector<Car> cars;  // Aggregation relationship
+};
+
+int main() {
+    // Creating engines
+    Engine engine1("V6", 300);
+    Engine engine2("V8", 400);
+    Engine engine3("Electric", 150);
+
+    // Creating cars and associating engines
+    Car car1("Ford Mustang", engine1);
+    Car car2("Chevrolet Camaro", engine2);
+    Car car3("Tesla Model 3", engine3);
+
+    // Creating dealership and adding cars
+    Dealership myDealership("Auto World");
+    myDealership.addCar(car1);
+    myDealership.addCar(car2);
+    myDealership.addCar(car3);
+
+    // Displaying the structure
+    myDealership.display();
+
+    return 0;
+}
+
+
+#endif

@@ -9,7 +9,7 @@ The Factory Pattern allows you to create objects without specifying the exact cl
 
 */
 
-#if 0
+#if 1
 
 class HVACComponent {
 public:

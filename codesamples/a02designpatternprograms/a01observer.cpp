@@ -6,7 +6,7 @@
 class HVACObserver {
 public:
     virtual void update(float temperature) = 0;
-    virtual ~HVACObserver() {}
+    virtual ~HVACObserver() {}//..C++ fate and not oo
 };
 
 
@@ -26,6 +26,8 @@ public:
 #include <vector>
 #include <algorithm>
 
+
+//Event source.. how.. look it realizes the interface HVACSubject
 class HVACSystemAnother : public HVACSubject {
 private:
     HVACObserver* observer;

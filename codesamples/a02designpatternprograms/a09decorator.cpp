@@ -76,8 +76,10 @@ public:
 
 // Usage
 int main() {
-    HVACDevice* ac = new AirConditioner();//FileWriter
-    HVACDevice* acWithTempControl = new TemperatureControlDecorator(ac, 22);  //PrintWriter code
+    HVACDevice* ac = new AirConditioner();
+
+    HVACDevice* acWithTempControl = 
+    new TemperatureControlDecorator(ac, 22);  //PrintWriter code
 
     acWithTempControl->turnOn();
     // Output: Air conditioner turned ON. Setting temperature to 22°C.
