@@ -1,0 +1,202 @@
+our focus.
+
+1. to ensure parameters picture is understood
+2. syntax wise.. lamda expressions, little bit about templates, STL, threads.
+3. discuss some design concepts and start with a case study..
+
+writing just adding of two numbers function in c++ and make it as a static library
+and then write main which uses the static library and calls adding of two numbers..
+
+template has to be instantiated.. that means template has to be used only then compiler will make copies.
+
+
+1. if i template function called X.
+2. i am not calling function anywhere..
+
+
+
+class A
+{
+public:
+A() { A(4); }
+
+A(int i)  { this->i =i; }
+int getI() { return i;}
+
+private:
+	int i;
+
+};
+
+int main()  {   A obj; std::cout << obj.getI();}
+
+
+why is  header file needed?
+to separate the interface and implementation..
+
+how to look at datastrucutures
+
+1. dont get kidnapped by names.. i want unorderedmap, vector, span, ranges.. no no dont talk about names.
+2. think in terms of operations, ok you have a group of things, what operations you want to perform..( patience
+is needed)
+3. from the given library.. STL, boost or some other freaky library.. decide which one suits your requirement..
+and then library ... other person design..so read documentation little bit atleast..
+4. creating your own should have a strong reason as to why are you creating your own...
+5. linear datastructure (normal notebook) and non linear ds... (indexed notebook)
+6. in any datastructure operation is not dependant on its content..
+
+
+we should avoid this kind of scenario..
+Datastructures are used in all projects they are are very important topic.. Statement == true.
+so let us build our own datastructure == false..
+
+mobile phones are used everywhere so let us make our own mobile phone.. why..
+
+intent... do we want to solve customer problem or improve our technical skill at customers cost..
+
+
+normal notebook, linear datastructure arrays or its cousins.. Vector, ,, in case you want
+to insert inbetween .. then consider using linkedlist...
+
+
+I want to use ds.
+
+1. be clear about operations.
+2. we have picked up one from the library
+3. read the documentation, only then we will understand other person design..
+
+
+
+we use some Datastructure it is better while learning to figure out what will the conent
+of the datastructure  in a typical project although we know operations dont depend on
+the contnet.
+
+product company fate is to keep on adding new features, our fate is to think does the feature
+add value to our project if yes learn it. else ignore it..
+
+for a technical person, domain is more of need rather than compulsion..
+
+
+I needed a normal notebook, we should know operations.. but the size of the array can change..
+
+
+STL
+you will see lot of ways to do the same thing..
+
+
+linear DS
+STL
+1. container array, vector, map, ...
+2. algorithm  sort, find, copy
+3. iterators.  -- 
+
+
+normal notebook, linear ds
+0. create
+1. adding
+2. view all
+3. sorting.
+4. searching..
+
+a06STL
+1.a00x to a05y.cpp
+
+menu
+1. create 
+2. add
+3. modify
+4. delete.
+5. sort
+6. view all
+7. exit
+
+create ..
+1. array, if array.. enter size..
+2. Vector
+
+what does container contain.. TaskId, taskname, priority, location.
+during adding ensure taskId is unique else dont add
+
+modify ask for tasked and modify ony priority and location, taskname.
+
+delete ask for taskid delete.
+
+date
+assignment
+exercises.
+objective.
+
+
+
+
+
+
+sort ask do you want sort on taskname, priority or location and sort according.
+
+sort 
+1. taskname.
+2. location
+3. priority
+
+view all
+show all elements
+
+exit
+exit
+
+11.00 to 11.15AM and join back..
+
+
+
+in c++ there are people who want to drag c++ to C in name of performance..
+
+
+
+
+
+moral of the story
+
+1. ds. think of operations and then pick one
+2. because we are using library, other person design is involved. refer to documentation
+3. linear or non linear ds.. that is a function of 1
+
+when it comes to non linear DS
+adding itself involves some algorithm to search or sort..
+we should know what the DS is expecting from us..
+
+
+i have a list... while adding i have to ensure uniqueness..
+ok 
+
+0. in both cases how many elements will go into the vector or set..
+1. list.. linear search and then if not found.. add.  -- how much time 
+2. set .. if not found add.  --how much time..
+3. you want to print all elements in the set.. ?
+you want print elements in list  --?
+
+
+
+a06setexample.cpp
+point.. if you dont overload the operator what problem are we getting
+how do we check whether something is unique or not unique at time of adding..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

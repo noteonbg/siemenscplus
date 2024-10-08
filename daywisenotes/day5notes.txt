@@ -1,0 +1,394 @@
+1. third picture input parametrs. how are we supposed to take.
+2. templates.. family of function.. instantiating the template.
+3. STL , instead of trying to look at names, focus on operations
+and then think which one to pick in the library and respect other person design.
+4. Design.. design is non deterministic...any person who tells only one way== kid..
+5. smart pointers.. do you need heap if yes.. dont use raw pointers, rather allow
+the library classes to allcoate and deallocate memory on the heap.. 
+shared pointer  -- high probability
+unique pointer  --relatively low probability
+weak pointer  -- very low probability..
+
+
+what is our intent.
+great process + bad intent = bad intent will remain
+we can fix intent with process.
+
+
+to solve customer problem or improve our technical skills...== intent should be solve customer problem if this is
+case we are willing to use libraries frameworks....No I will cook everything by myself ok.. give a reason why you want to do this..
+
+
+biggest challenge in the project is do we have a perspective in terms of how the project will move over a period of time..
+
+if you know what will change, then you can put interfaces in between..
+
+1. base class pointer calling a virtual function..
+
+kids make rules every day
+adults know how to minimize rules because they know finally rules is good only if people follow it..
+
+
+S-- moral science principle.. single responsibility principle...
+O -- program to an interface.. and you can have as many implementations as possible.
+write a .h file and then think of the .c file..
+L -- when we have a hieararchy.. if you know the class above in the hierarchy.. you should be able to deal
+with any object of the hierarchy...  Lishov substituablity principality.
+
+IPAddress.  --read documentation of IPAddress .
+IP4Address
+IP6Address
+
+Account
+SavingAccount
+CurrentAccount
+ok all these principels are just application of OO concepts..
+
+LSP in code..?
+if you are the owner of the base class.please spent time
+and think which functions will be virtual which functions will not be virtual..
+if we do a good job on this.. then we have followed LSP.
+
+real 
+base class written by person X
+derived class written by person Y.
+
+
+I == design interfaces by keeping minimum numbr of functions inside it..
+be willing to justify why the number of method is so in an interface..
+
+
+D  == dependency injection principle..
+
+Dependancy -- loosest relationship that can exist between two classes.
+
+class A
+public:
+    void f1(B obj) {}
+
+class B
+
+A depends on B for the function f1.
+
+
+A == Ramesh
+B = Electrician
+f1 = electrical works.
+
+
+Ramesh depends on Electrician for electrical works.
+
+
+____________   depends on _____________ for function  _________________
+
+
+
+
+
+
+	
+
+injection
+
+
+
+stupidity can last for long time even 1000 years ..
+
+
+relationship between two classes is technically 4, category wise it is 3.
+
+1. dependency
+2. Association ( whole -- part)
+2.1 Aggregation  ( part can exist without the whole)
+2.2 composition ( part cannot exist without the whole)
+3. inheritance  ("is a")
+
+Mobile is associated with a  Battery 
+
+
+class Mobile
+	Battery battery;
+	Sim *sim;
+
+Mobile is associated with  battery and sim.
+Mobile relationship with battery is composition.
+Mobiel relationship with sim is aggregation..
+
+
+
+Process has a Thread..( composition)
+
+class Process
+{
+
+	private:
+		Thread t;
+
+
+
+
+}
+
+finally are we good at variables and functions..
+variables.. scope.. choose the correct data type( content  + operations)
+functions..
+
+design != knowing rules..
+design biggest challenge is knowing tradeoffs..
+
+
+
+S
+O
+L
+I
+D  -- dependency 
+
+injection or inversion.
+1. instead of we creating the object ask the framework to create the object.
+
+kids world who created the object .. I me myself...
+adults world.. who created the object.. Me, framework or some other thing..
+
+
+
+std::find(it1,it2,lamdaexpression)
+
+
+
+
+
+
+
+class Mobile
+{
+
+public :
+	void putSim(Sim &s)
+	{
+	  this->s = s;
+
+	}
+
+
+
+
+}
+how do you recognize injection word?
+who is calling the putSim function, we or somebody else.. somebody else ok injection is there, no I am calling only
+ok injection is not there..
+
+
+Dependancy injection..
+1. first prove dependency
+2. then let us think about injection.
+
+
+S
+O
+L
+I
+D
+
+local
+1. local to a function.
+
+reference  --name
+pointer
+variable
+
+variable it will removed from memory once we out of the function..
+
+
+if you dont see association and if you dont see inheritance
+then it must be dependency when you talk about relationship between two classes.
+
+
+
+which is good, bike , volvo bus or road roller.. --> it depends.. ( when somebody uses this word tie him in a chair
+and ask him until you explain i wont let you go)
+
+I dont know which one to buy.. ( taking decisions with incomplete information) you to have pick one choice...
+when in doubt
+stick with dependency (lowest possible scope)
+
+probability of using things.
+
+typical design...
+1. high proportion of association and dependency 
+2. low proportion of inheritance..
+
+
+dependacny
+aggregation and composition..
+inheritance
+
+
+
+class Process
+{
+	private:
+		Thread t;
+
+
+
+};
+
+
+int main()
+{
+	{	
+		Process p;
+
+	}
+	
+
+
+
+}
+
+
+
+
+when hospital is goine, all the depts should be gone..
+
+
+please take a break till 11.25AM and join back..
+
+
+
+
+SOLID principles. may be view.
+
+0 -- rules are guidelines and no point becoming fans of any rules.. violate rules with justification..
+1. look at view from telescope point or view.. context... how things will change over a period of time..
+2. idea about architecture.
+what is layering, how flow happens between functions.. we have to iterate..
+3. design patterns.. to class design principles ( SOLID)
+
+
+i want to talk about some 6 design patterns.. high probability of these design patterns being used in a project.
+
+
+1. observer design pattern.. it is about event handling, no projects works without event handling.
+2. Strategy design pattern .. plug and play of algorithms...no project works without this view..
+3. proxy design pattern.. before doing something and after doing something..
+4. template design pattern...  we have an opinion of how to do things.. make things easier..
+5. factory design pattern -- create the object of the class without knowing its underlying name...
+6. decorator design pattern or singleton or state pattern....
+
+when we have a problem tatement instead of applying all patterns
+startpoint could be these 5..
+
+Event handling
+
+1. Event source
+1.1 where event occurs. some variable will change, we have to notify others.
+1.2 list of people who are interested in the event.
+1.3 mechanism to register orunregister for the event..
+
+example I am showoing on event handling is a kids example why...
+
+key things on day1
+1. loyalty towards the project.
+2. tolerate uncertainty and do write poc when in doubt.
+3. generalize our learning
+
+
+
+
+
+
+
+
+
+
+
+
+can we collect 3 examples  on design pattern
+
+1. your own.
+2. in the language itself.
+3. in the framework.
+
+in real life proxy will never tell I am a proxy...
+distributed computing, it will nver work proxies..
+
+
+if not clear about architecture dont touch patterns..
+
+
+1. observer
+2. strategy
+3. proxy
+all 3 are used to model different scenarios which may occur in the same project..
+
+
+Factory
+1. create objects of underlying class without revealing the classname. but you must have some interface to indicate
+what a class may contain...
+
+you just give me the ipaddress, i will judge whether to create ip4 object or ip6 object.. example of factory design pattern.
+
+
+1. observer
+2. strategy
+3. proxy
+4. factory.
+5. Template.
+
+
+can non static functions be present in the abstract class .. yes 
+we cannot create the object of the abstract class, then who is going to call the non static functions?
+object of the derived class.
+
+Abstract class.
+1. it is a base class
+
+1. programming language
+2. oops
+3. design patterns.
+4. generalize our understanding of frameworks.. and may be improve design skills.
+5 project
+
+look at IO api in any language... you will see decorator functionality at work..
+
+
+1. Observer == event handling
+2. Strategy = plug and play of algorithms.
+3. template == x+something.. x should easier.. think of template pattern.
+4. proxy == pre and post processing of requests
+5. factory == create objects without knowing the underlying classnames.. then you can keep changing the classnames user need to know
+.. simple example of using interface.
+6. decorator.. we have an object called X. i want to add a new functionality to X... "decorate X with Y", Y is called decorator.
+
+collect some examples on the 6 design patterns in a domain which is familiar to you..
+
+
+summary
+1. design != knowing rules..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

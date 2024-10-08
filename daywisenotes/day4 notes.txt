@@ -1,0 +1,276 @@
+1. there is a flow you consider when passing input parameters..
+2. lamda expressions..  ( function definition + function assignment + capturing environment of the function)
+3. perfect forwarding..
+4. datastructures..  always think in terms of operations first and then think of which one to pick
+from the library, other person design is always involved..
+
+
+what operations.
+1. add key and value.
+2. extract value specifying the key
+3. remove key and value specifying key
+4. iterate thru all keys
+5. iterate thru all values.
+6. get keys and values..
+
+typically in your map
+what was data type of the key  -- inbuilt type or Enum... very rarely project specific type
+what was the data type of value..  most of times project specific type..
+
+when it comes to library usage, opending documentation and looking functions available
+and what is intent behind them. is an important thing..
+
+i have an object, i want the object data into individual variables.. style of coding..
+style of coding should be differentiated from things which give performance..
+
+product companies will keep on adding features...copy pasting it from different langauges..
+by changing names..as  technical person we should not forget our loyalty is towards project
+and we want to be sane to generalize learning as far as possible.
+
+lot of people talk about removing runtime polymorphism from the code.. ie remove virtual functions
+from the code ==this is a kid speaking... we have remove virtual functions from the code.. not possible
+if the need is there to use virtual functions..
+
+most of times people who dont need virtual functions, if they had used virtual functions, it is under
+stood they dont need it.
+
+non owning view of things..  == span..
+
+if we are creating an object of somebody else, rule no 1 look at the constructors available.
+
+pipelining operation..
+
+std::optional
+std::variant
+std::span
+std::ranges
+
+smart pointer..
+1. want to use heap.
+2. dont want to bother myself with either allocation or deallocation.
+3. pointer.. pointer is never used to transfer ownership..
+3.1 unique pointer. ( less probability of using it)
+3.2 shared pointer ( more probality of using it)
+3.3 weak pointer( 
+
+shared pointer.. the pointer is shared across multiple functions.
+unique pointer.. the unique pointer cannot be shared, but it can moved across functions..
+
+
+int *ptr =new int;
+
+ptr is on heap or non non heap..
+
+
+
+1. how do i create a smart pointer.
+2. smart pointers are wrappers on some actual object
+3. how do you access the actual object via the smart pointer.
+4. if you are using shared pointers, if you want to tell I dont want link with teh actual object
+how do i tell.
+
+we are seeing shared ptr.
+
+1.  where it is getting created.
+2. what is its content..
+3. where all are you sharing this..
+4. operating on the wrapped object by using -> function
+5. at some point of time because smart pointer is present on the stack, due to storage it will
+get removed from memory...at that point of time object present on heap also is deallocated..
+
+
+if you want to prevent a copy of object from being created? what should we do
+earlier .. private copy constructor.
+c++ 11 delete.
+
+if a person tells advantages of X and disadvantages of Y
+it means the person is a sales person for X and in technical world we dont want to deal with sales persons.
+
+
+
+Design
+0. do we know what will change, what will not change in the project...
+1. non determinism.. 
+2. architecture...
+entry point
+exit point
+2.1 tradeoff.
+2.2 layering , communication happens between layers and failure is communicated.
+2.3 consistency...
+
+you have a English statement -- problem statement
+we have to convert this into code.. (functions and variables finally)
+
+
+1. fix on an architecture... (iterative process)
+....
+3. choose design patterns..
+4. knowng class design would help
+5. for doing 3 and 4 we should know what is variables and functions properly.
+
+worst question to ask , what is your project..kidnapping question..
+
+1. how would know whether a project is a good project or a bad project without asking
+what is your project?
+
+how many header files did your project have and why?
+how many interfaces did your project have?
+
+class  ==product  == encapsulation
+interface  == standard =c++ uses class syntax to code an interface..  ==abstraction.
+
+in c programming when I have a doubt should I create a .c or .h file create a .h file..
+in oops if you have a doubt should you create a class or an interface, better create an interface.
+
+theme.. decide what to cook first and then we will think how to cook..
+
+
+
+class HVACSystemAnother : public HVACSubject
+HVACSystemAnother is a product which agrees to the standard called HVACSubject..
+how can we tell this...
+
+we knew that HVACSubject is not  a class it is an interface.. that is reason..
+
+X and Y are interacting
+when Y changes, X should not change, that means if we are doing C.. we should put header between X and Y.
+in oops, we put an interface between X and Y.
+
+SOLID principles
+S --moral science principle  -- class should single job only... 
+O  -- open for changes, closed for modification  -- program to the interface and not to the class
+L  -- hierarchy making... if you look at super class, you should be able to deal with any
+object of the hierrchy
+I  --Interface segregation principle, design interfaces with minimum number of functions..
+D  --Dependancy inversion...
+
+
+class X:public Y
+
+what is Y, an interface, then read the code as X is a product which is agreeing to standar proposed by Y.
+if Y is a class. how do i Know,, it has member variables, constructors,,non tatic functions.. then
+say X is inheriting from Y, what does X inherit member variables..
+
+
+class A
+{
+public:
+	void f1() {}
+private:
+	int i;
+
+};
+
+A obj1,obj2,obj3;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ISP.
+ok we designed an interface, prove the methods that we have put inside the interface are minimum only..
+have as minimum number of methodsinside the nterface..
+
+class MusicMobile
+{
+public:
+	virtual makecall()=0;
+	virtual receicecall()=0;
+	virtual sendsms()=0;
+	virtual trransfermusic()=0;
+	virtual playmusic()=0;
+
+}
+
+class Mobile
+{
+public:
+	virtual make call()=0;
+	virtual receicecall()=0;
+	virtual sendsms()=0;
+	
+
+}
+
+
+class Musicplayer
+{
+virtual trransfermusic()=0;
+	virtual playmusic()=0;
+}
+
+class MusicMobile:public Mobile,MusicPlayer
+{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+summary
+1. in STL. think of operations, which one to pick from library and for time being let us stick with parameters
+picture..  performance measure it..
+
+2. we want to use heap, consider smart pointers..
+
+3. when it comes to design, remember architecture takes priority .. class design, design patterns all are important later on.. not in the beginning.
+
+
+
+
+
+
+map -- which has key to value.
+reverse case --- value to key..
+
+based on the value you need to get the key...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

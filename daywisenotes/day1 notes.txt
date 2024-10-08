@@ -1,0 +1,251 @@
+
+1. years of experience
+2. expectation from the training.. particular priority on topics.
+
+void f2(int &&x)
+{
+
+}
+
+void f1(int &x)
+{
+
+}
+
+f2(3);
+
+
+
+
+
+
+
+
+when we define a function
+
+we should think of 
+1. who is caller of the function.
+
+1.1 it can we 
+1.2 it can be system....== callbacks... system is calling the function
+pay attention to it.. measure how much time it takes to execute.
+this can eventually create bottle necks in the code..
+
+generally any person to be a good programmer has to be 5/5in functions
+and variables..
+
+functions
+1. function definition
+1.1 think who is calling it.
+2. function calling
+2.1 open documentaiton
+3. function assignment.
+3.1 most of times it means we are not the caller of the function.
+
+Lamda expression.
+
+I am defining a function
+and then I will assign it but I wont call it
+who will call it somebody else will call it.
+the above lines can be said for function pointer also, but what lamda can
+do is capture the environment..
+
+
+
+could you do it without lamda expressions answer is yes... what was
+concept in C ... function pointer..
+
+
+
+
+
+many a times 1 and 2 can be done by different people.
+
+what is most important thing we know about pointer.
+
+ person A created the pointer.
+person B will assign to the pointer.
+
+person B does not exist
+person A created the pointer, person A only assigned to the pointer
+it means you did not need the pointer.
+
+int *x; //pointer creation
+int i=3;
+x =&i; //pointer assignment in same function, pathetic..
+*x =4;
+pathetic
+
+
+important topic in any project.. technically .. Event handling..
+event handling will involve functions whihch we define but we dont call.
+event handling functions are slow, then performance will be slow..
+
+any person who claims 
+"new" to lamda expression
+
+1. lamda expression
+2. function pointer
+3. functor.
+
+
+if you can avoid auto avoid auto dont use auto.
+
+in c++ it is good to know what is data type of the variable we are using..
+where you will use auto, stl iterations..., lamda expressions..
+
+
+
+
+
+
+
+functor... 
+
+object acting like a function..
+
+
+
+
+
+
+
+
+
+
+
+during threads,during  event handling, during STL usage.. we will using
+lot of lamda expressions..
+
+proof of experience is.
+0. loyalty is only towards the project and not towards the technology.
+1. how we tolerate uncertainty
+2. can we generalize our learning
+
+I am using lamda 
+
+1. defining a function
+2. assigning.
+3. may capture the environment in which lamda is written ( external function
+within which lamda is created)
+== "generalize our learning"
+
+
+
+
+
+
+
+
+
+
+Quick summary
+
+0. measuring and knowing how to pass parameters according to that picture
+1.  lamda expressions.. think of function definition and function assingmnet
+
+
+
+
+
+auto i=3;
+
+place holder.
+
+
+auto indicates that hey look look deduce the data type by looking at what
+is getting assigned to it at compile time only.
+
+auto i =3; //not prefer this
+
+int  i;
+
+auto..
+data type has be deduced at compile time.
+remember it has to be initialized...
+
+
+some object
+used with an operator.
+it means operator overloading must be present in the code
+operator loading == function call 
+
+map operation
+we should know the data type of key and data type of the value.
+here data type of value is pair.
+hence we should know what is data type of first in pair
+what is data type of second in pair.
+
+
+
+
+
+
+
+summary
+1. look at input parameter picture..where is it present
+in references.a03inputparameters
+2. look at codesamples\a03c++syntaxcodes\lamdas
+look at the code in  a08statemachine.cpp make it work in your system
+and identify which is slowest function here which is fastest function
+and how much time difference is there between 
+3. find out how much time each function is taking.. to execute..
+4.
+
+
+
+
+
+
+
+
+
+data type basic.
+
+1. content
+2. operations
+we are trying to model the problem, 
+
+
+
+we are going to use operations hence we choose a particular data type..
+example
+
+auto i =3;
+i = i*4;
+i = i/2
+//* and / are operations
+
+class
+
+content == non static variables
+operations = non static functions..
+
+auto emp = f1();
+emp.setEmpno(23);
+emp.setEmpname(44);
+
+
+
+
+Monday discussion
+STL , new libraries.. 
+threads..
+
+STL
+Templates
+Threads
+
+if the memory print of variable is small. whether we use 
+reference or dont use refernce does not matter. 
+
+
+
+
+
+
+
+
+
+
+
