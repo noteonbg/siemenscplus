@@ -23,6 +23,11 @@ https://us02web.zoom.us/rec/share/rsBbnD086qzwLGmjErD2k_LKB8nJCJoUaDXyXfKeLL4nt2
 Passcode: Seimcp@8
 
 
+Day 6 recording link
+https://us02web.zoom.us/rec/share/9z3wV1aSlYU2Myg4MXItLQ8dwDkNK9Ms5G6ok1xj6saqP3Ys7gs8cVZrHnGC2DKU.eGcXb-Ne4_1f9gar
+Passcode: Cpp@1610
+
+
 
 
 queries 
