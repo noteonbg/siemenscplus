@@ -7,11 +7,11 @@ Write a program that calculates the sum of squares of
 Write a program that takes a vector of integers and filters out
  the odd numbers using std::copy_if with a lambda expression.
 
- 3.
+3.
  Write a program that filters out components from a vector based
   on a condition using std::remove_if with a lambda expression.
 
-  4.
+4.
   mplement a custom algorithm using lambda expressions, such as
    finding the maximum element, counting occurrences of a
     value, or finding the average of elements in a vector.
@@ -30,12 +30,63 @@ on criteria, stick to input parameters picture while writing the code.
 8. copy paste some examples on observer design pattern, proxy design pattern
 and factory design pattern.
 
-9. see if you can fill up problemsample.txt and code.
+9. see if you can fill up a02problemsample.txt and code.
 
-10.see if you can fill up problemstatement2.txt and code.
+10.see if you can fill up a03problemstatement2.txt and code.
+
+-----------------------------------------------------
 
 
+11.  Try the following program
 
+We have a group of Devices. which are characterized by deviceid, devicestatus and devicelocationid. fillup this group with some devices objects.
+	. show  a menu as follows
+		 Menu 1
+
+		1. start the App
+		0. exit
+		enter your choice.
+		
+		
+when start the app is selected by entering 1, ask for deviceid. if the deviceid is found in the group we created, then show a menu as following.
+
+		Menu 2		
+
+		1. update the device
+		2. view device details. ( show all device details ..)
+		3. view device details based on status ( show all device details based on status)
+		4. view device details based on locationid. ( show all devices based on location id)
+		5. back 
+
+in case deviceid is not found in the group, ask for deviceid, devicestatus and location
+add that to the group provided deviceid is not found. then come back to the menu 1.
+
+for Menu2 , the functionality is as below
+	
+when 1 is selected ask for new devicestatus and devicelocation and update that alone
+when 2 is selected show the deviceid, device status and devicelocationid.
+when 3 is selected ask for status and shwo the devices based on the given status.
+when 4 is selected ask for locationid and show the device id and status based on the location.
+
+Think where we can use threads in this scenario... 
+
+
+12.
+ create an array filled with 10000 random numbers.
+ and create two threads.
+one should count the number of odd numbers in the array and print it
+and second one should count the number of even numbers in the array
+ and print it.
+
+ main()
+    array of 10000 numbers filled with random numbers.
+    t1  --array
+    t2  --array 
+
+measure whether single thread does a great job .. or multiple threads do a great job...
+
+13. modify the same program where the threads should return the number of odd numbers
+and even numbers to the main function and we should print it there. consider using promise...
 
 
 
