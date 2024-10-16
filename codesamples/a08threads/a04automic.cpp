@@ -37,7 +37,7 @@ explore other
 
 */
 
-#if 1
+#if 0
 
 #include <iostream>
 #include <thread>
@@ -77,7 +77,7 @@ int main() {
 #endif
 
 
-#if 0
+#if 1
 
 #include <iostream>
 #include <atomic> // Include the <atomic> header for std::atomic
@@ -275,7 +275,7 @@ int value = y.load(memory_order_seq_cst);
 
 #endif
 
-#if 0
+#if 1
 
 #include <iostream>
 #include <atomic>

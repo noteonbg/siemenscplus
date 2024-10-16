@@ -1,0 +1,206 @@
+ok .. today topic threads...
+
+quick summary
+0. performance should be measured
+1. input argument picture
+2. STL.. think of operations and then pick one datastructure.
+3. design principles.. solid principles and some design patterns.
+observer, strategy, factory, template, decorator..proxy..
+4. if heap usage consider smart pointers shared ptr or unique ptr..
+5 today we will start .. threads...
+
+
+
+thread..
+parallel execution within a given process.
+
+most important. our loyalty is towards project and not towards technology..
+what does this mean in terms of code.
+1. if a higher level of abstraction is available prefer that and not cook crude .. things..
+
+There is a job called X do that without threads and measure it how much time does it  take..
+ok I need a thread. ask the following questions..
+
+1. what is the job thread will do.
+2. do you need to stop the thread in between.
+3. how many threads do you want to create..
+4. is there some data that is shared between threads..
+
+thread coding is not difficult..difficult thing is justifying the context...
+
+Eternal hope... do you need thread somebody tells yes... did you do your homework.. 1 to 4..
+
+
+defining of a function and assignment of a function = lamda can enter in.
+
+if possible dont touch std::thread.. stay away from it.. no i want parallel execution
+within a process.. ok think of async..
+
+
+
+freak point
+any person who knows how to use sleep command and random number generation n any programming
+language can fool the customer that project is over..
+
+
+I want to do something is in the thread, after the thread completes the job
+i want to pick up what ever it has completed. asynch is a simpler api
+when compared to unnecessary cooking by using raw threads.
+
+
+
+a01thread.cpp
+a02async.cpp
+change it to use asycn..
+
+suppose you did not use threads in both the scenario how slow the program
+will become..
+
+you create 1000 element array and pass this array to two threads.
+fill it up with random numbers. 
+one thread will print the sum of odd numbers in the array.
+other thread will print the sum of even numbers in the array.
+
+1. without threads how much time
+2. with thread how much time it takes.
+3. with asynch how much time it takes.
+
+do you use threads... let us assume 100 people who use threads.. 
+in threads what do they do.. start a thread allow it to run... 
+
+sharing data between threads..
+i have some data let us X.
+
+we have multiple threads.. each thread when it accesses X , other threads should not
+access X... -- need for synchronization..consider using a Mutex..
+
+why is this need.
+basically X is not sharable..
+thread 1 access X, you dont want thread 2 to acces X concurrently..
+
+if this X turns out to be a primitive type.. some variable.. which is inbuilt type
+example int, char... then you consider using something automic..
+
+
+
+sharing of data between threads.
+1. non local data..
+
+one way to avoid the problem that come with sharing of data..
+1. local variables.
+2. immutable objects 
+
+somebody tells I deal with thread programming lot of threads need to share data..
+consider using immutable objects..
+
+show there are multiple threads.
+they are  accessing some data X in common..
+if yes.. before considering using mutex.. try consider using automic..
+
+ask X is a basic data type int.. if yes consider using automic.
+
+can you give some scnearios where two threads access a common resource
+and the resource is not sharable..
+
+tell resourcename..
+atomic..
+
+remember we can put constraints on the template parameters..
+
+it is very important not to exhibit paranoid behavior..
+
+you have a non sharable resource called X.
+two threads are accessing X. dont use mutex and just write  apoc and show
+thru data X is running into problems because of not using mutex.
+
+what is string in c++
+string is a template specialization class.
+
+we have a resource which needs to be shared across multiple threads.. if yes..
+
+0. async bias when compared to raw thread usage..
+1. consider using automic.  ( preferring higher level of abstraction)
+2. mutex and lock
+
+struct Data
+{
+  std::string outputofThread;
+
+}
+
+
+job(input, &outputofthread)
+
+
+when we return a reference or  pointer from a function usually it is understood
+that will be input argument of the function
+
+cin >> "hello" >> 3;
+
+return type of >> 
+
+for 90% of people thread programming start a thread and do some job and some times putting
+mutex to prevent multiple threads from spoiling the resource..
+= asynch is great for this..
+
+dont get carried away by syntax.
+
+we have a resource, which is shared across multiple threads
+
+1. we want to tell hey only one thrad should access at a time.. for this operation..
+
+tell the thread acquire the resource exclusively for yourself..
+do whatever you want
+release the lock..
+
+you have a variable which is shared across multiple threads.
+changes are happening to this variable..
+when you tell I want to do something with this variable, how do we know
+what is value present in this variable..
+
+
+when it comes to threads.
+1. pick higher level of abstraction
+2. collect data for your  usage and dont be preoccupied with terminogies
+3. look at the code base and see what feature of thread they are using...
+
+we will complete threads..
+and we will start covering remaining portion of templates.
+1. how to make templates take variable arguments
+2. how to put constraints on tempalates
+3. so called features
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

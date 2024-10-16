@@ -31,7 +31,7 @@ int main() {
 #endif
 
 
-#if 0
+#if 1
 
 #include <iostream>
 #include <thread>
@@ -59,6 +59,8 @@ int main() {
 
 #endif
 
+
+
 #if 1
 //To prevent race conditions, you would typically use synchronization mechanisms like mutexes or locks to
 // ensure that only one thread accesses the shared data at a time. For example, protecting the access
@@ -83,7 +85,8 @@ The mutex is automatically released when the lock_guard object goes out of scope
 #include <atomic>
 
 
-std::atomic<int> counter(0);
+//std::atomic<int> counter(0);
+int counter;
 std::mutex mtx; // Mutex to protect access to x
 /*
 A thread owns a mutex from the time it successfully calls either lock or
@@ -94,15 +97,18 @@ The mutex prevents other threads
 */
 void incrementX() {
     for (int i = 0; i < 1000000; ++i) {
-      //  std::lock_guard<std::mutex> lock(mtx); // Lock the mutex
+
+        
+        std::lock_guard<std::mutex> lock(mtx); // Lock the mutex
         counter++;
+                
     }
     
 }
 
 void decrementX() {
     for (int i = 0; i < 1000000; ++i) {
-        //std::lock_guard<std::mutex> lock(mtx); // Lock the mutex
+        std::lock_guard<std::mutex> lock(mtx); // Lock the mutex
         counter--;
     }
 }
@@ -117,7 +123,7 @@ int main() {
     std::thread t2(decrementX);
     t1.join();
     t2.join();
-    std::cout << "Final value of x (with mutex): " << counter.load() << std::endl;
+    std::cout << "Final value of x (with mutex): " << counter << std::endl;
     return 0;
 }
 
