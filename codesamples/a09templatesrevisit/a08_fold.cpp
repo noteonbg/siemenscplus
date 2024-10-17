@@ -1,9 +1,9 @@
 #if 0
-#include <iostream>
+
 
 template <typename... Items>
 void printItems(Items... items) {
-   ((std::cout << items << "\n"),...); // unary right fold
+   ((std::cout << items << "\n"), ...); // unary right fold
 }
 
 int main() {
@@ -14,7 +14,7 @@ int main() {
 
 #endif
 
-#if 1
+#if 0
 
 #include <iostream>
 
@@ -39,25 +39,11 @@ auto unaryRightSubtract(Items... items) {
    return (items - ...); // unary right fold
 }
 
-
-/*
-Left Fold: Processes from the leftmost element to the right.
-Right Fold: Processes from the rightmost element to the left.
-
-*/
-
 int main() {
-     	 
-       //n this example, (args + ...) expands to (((1 + 2) + 3) + 4).
-       std::cout << unaryLeftAdd(1, 2, 3, 4)  << "\n ";
-
-
-         //In this case, (... * args) expands to 1 + (2 + (3 + 4)).
+     	 std::cout << unaryLeftAdd(1, 2, 3, 4)  << "\n ";
          std::cout << unaryRightAdd(1, 2, 3, 4) << "\n";
          std::cout << unaryLeftSubtract(1, 2, 3, 4)  << "\n";
          std::cout << unaryRightSubtract(1, 2, 3, 4)  << "\n";
-
-
 }
 
 #endif
