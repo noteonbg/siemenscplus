@@ -46,7 +46,7 @@ int printValue(T value) {
 
 
 template<>
-int printValue(char c,int d)
+int printValue(int d)
 {
     //lgoci 2
     return 4;
@@ -91,7 +91,7 @@ It uses std::enable_if to conditionally enable or disable the function based on 
 
 int main() {
     std::cout << printValue(44);
-   printValue("hello");      // OK, 42 is an integral type
+   printValue("hello");      
     printValue(3.14); // Compile-time error, 3.14 is not an integral type
     return 0;
 }
