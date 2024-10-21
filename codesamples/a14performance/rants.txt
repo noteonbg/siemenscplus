@@ -1,0 +1,166 @@
+	we just spoke performance in terms of figuring out
+	input and output parameters
+	when you have functions to judge those functions which get called
+	by the system and check how they perform during worst circumstances.
+	whenever we define a function think who is going to call it
+	if system.. then slow down and think how slow this can become.
+
+	1.make the code cache friendly.
+	2.data locality..
+
+	There should come of consistancy in terms of what tool the company
+	uses for measuring performance..
+
+	time command.
+	perf.
+
+	if somebody talks about advantages of X and disadvantages of Y.
+	usually that means the person is a sales person for X.
+	X= data oriented
+	Y == object orientedness.
+	
+	Process flaws cannot be fixed by technology.
+	any process which depends on a hero will fail.
+	 
+	talk to the compiler first before you think of talking to other things..
+	 look for compiler options..
+	 	
+	 if we dont like c++ happily use C nothing wrong with the thing..
+	 C++ = C style coding + overloading + templates.
+	 
+	 business logic = model (structures or classes which are specific to our projecT)
+	 simple way of looking at class is like a data type.
+	 
+	 
+	 to tell runtime polymorphism.
+	 base class pointer and we dont know which derived class object will come till runtime.
+	 I know all derived objects at compile time only then there is no need for runtime polymorphism.
+	 
+	 virtual destructor is needed when we have a base class pointer pointing to a derived class
+	 object on heap.
+	 delete baseclasspointer, derived class destructor does not get called.
+	 by making the desdtrucor virtual, we can ensure that destructor of derived class gets called.
+	 
+	 
+	 
+	 advantage with inheritance.
+	 
+	 class A
+	 	int deviceid;
+	 	bool status;
+	 	usbconnectivity;
+	 	
+	 class b:public A
+	 class C:public A
+	 
+	 do you want to avoid only virtual functions or do you want to avoid inheritance itself.
+	 my understanding people want to avoid only virtual functions.
+	 
+	 genrally assume c++ programemrs dont have good theory background on OOPs.
+	 
+	 
+	 we take a  break for 11.22 Am we will join back..
+	 
+	 check 
+	 1. device program under three circumstances.
+	 
+	 1. no classes.
+	 2. with class.
+	 3. with class and array of deviceids, array of status, array of locations.
+	 4. try so called runtime polymorphism program without template, with template
+	 with std::variant
+	 5. try simd programs and see how much time it takes.
+	 
+	 
+	 1. measure the time taken.
+	 2. perf command see whether output you are getting.
+	 3.simd instructions.. check whther how much time it takes.
+	 4. if condition optimization.
+	 
+	 5. calculator program...
+	 
+	 
+	 
+	 c++
+	 0. as technical person we dont need becomea  fan of any langague or a feature, we will loyal
+	 only to the project.-- respect architecture..
+	 1. good variable design and functiondesign.. look at the chart for input parameters.
+	 2. look out for functions which are called by the system and think what is worst case for scenario.
+	 3. measurement. you need a process for performance and not leave it to individual heroims of the     programmer.
+	 4. when it comes os topics, threads, simd instructions, learning about os officially and how it
+	 interacts with hardware is important.
+	 5. try your best to ask the compiler do the job, rather we doing the job of optimization.
+	 6. syntax point of view.
+	 	templates
+	 	lamda expressions.
+	 	std::any, std::variant and std::optional.
+	 7. std library consider using range 
+	 8. read from official source..
+	 
+	 Thank you
+	 vasu.lv@gmail.com
+	 9449012333
+	 
+	 problem solving.
+	 1. lower the cost of failure
+	 2. willing to write a small program which clarifies my doubt on syntax or on the concept.
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

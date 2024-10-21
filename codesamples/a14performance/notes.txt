@@ -1,0 +1,454 @@
+making things cache friendly.
+
+
+Main Memory:
+---------------------------------------------------
+| Data 0 | Data 1 | Data 2 | Data 3 | ... | Data 31 |
+---------------------------------------------------
+
+Cache Line (64 bytes):
+---------------------------------
+| Data 0 | Data 1 | Data 2 | ... |
+---------------------------------
+
+
+is a unit of data transfer between the main memory and the cache memory.
+ It represents the smallest amount of data that can be transferred 
+ to and from the cache in a single operation. 
+
+ he size of a cache line is typically between 32 and 128 bytes,
+  though 64 bytes is a common size in modern processors.
+
+A cache line contains a segment of contiguous memory addresses
+It usually consists of the data itself and a tag that helps the cache identify 
+the memory address of the data.
+
+When the CPU needs to access a particular memory location, it first checks if the data is in the cache.
+If the data is not in the cache (a cache miss), the cache controller fetches the entire cache line
+ containing the required data from the main memory.
+This cache line is then stored in the cache and used to serve subsequent requests.
+
+
+
+
+moral science words
+
+We don't explicitly choose whether to use L1, L2, or L3 cache.
+ These caches are part of the hardware architecture and are managed automatically 
+ by the CPU to optimize performance.
+
+Cache Levels:
+L1 Cache:
+
+Size: Smallest (typically 32KB to 128KB per core)
+Speed: Fastest (very close to the CPU)
+Purpose: Stores frequently accessed data and instructions for each core.
+Usage: Automatically used by the CPU for the most immediate data.
+
+L2 Cache:
+Size: Larger than L1 (typically 256KB to 1MB per core)
+Speed: Slower than L1 but faster than L3
+Purpose: Stores data and instructions that are not in L1 but are still needed frequently.
+Usage: Automatically used by the CPU when data is not found in L1.
+L3 Cache:
+
+Size: Largest (typically 4MB to 32MB, shared among all cores)
+Speed: Slowest among the three, but faster than RAM
+Purpose: Stores data and instructions that are not in L1 or L2 but might still be needed by the CPU.
+Usage: Automatically used by the CPU when data is not found in L1 or L2.
+
+Data Locality:
+
+Spatial Locality: Access memory locations that are close to each other. 
+This way, once a cache line is loaded, multiple nearby data points can be used before 
+loading new cache lines.
+
+Temporal Locality: Reuse recently accessed data. This ensures that data stays in the cache longer,
+ reducing the need to reload it.
+
+Loop Optimizations:
+
+Work with data in blocks that fit into the cache. For example, process smaller chunks of a 
+large array to ensure they stay in cache.
+Minimize cache misses by accessing memory sequentially rather than randomly.
+
+Data Structures:
+
+Use data structures that provide good memory locality. For instance, 
+arrays are often more cache-friendly than linked lists due to their
+ contiguous memory layout.
+Avoid large structures that can cause frequent cache evictions.
+
+
+Concurrency and Threading:
+Minimize contention for shared data. Threads should ideally work on separate data to avoid cache coherence overheads.
+Align data to cache line boundaries to prevent false sharing,
+ where threads inadvertently affect each other’s performance 
+ by accessing data on the same cache line.
+
+
+Cold (or Compulsory) Misses
+Description: These occur when a program accesses a block of memory for the first time. Since the data has never been loaded into the cache, a miss is inevitable.
+Example: Accessing an array element for the first time during program execution.
+
+
+2. Conflict Misses
+Description: These happen when multiple data blocks compete for the same cache line. 
+Even if the cache has enough space overall, the specific mapping of data to cache lines causes a conflict,
+ leading to evictions and misses.
+
+ Example: In a direct-mapped cache, two different memory addresses that map to the same cache line will cause conflicts.
+
+
+3. Capacity Misses
+Description: These occur when the cache cannot contain all the data needed by the program,
+ resulting in evictions of useful data blocks and subsequent misses.
+Example: Working with data sets larger than the cache size, causing frequent evictions and reloads
+ as the program processes different parts of the data.
+
+ Cold Misses
+Cause: First-time access to data.
+Mitigation: Prefetching techniques, although they can't completely eliminate cold misses, can help by anticipating data needs.
+
+Conflict Misses
+Cause: Limited associativity of the cache leading to multiple addresses mapping to the same cache line.
+Mitigation: Using caches with higher associativity (e.g., set-associative caches) can reduce conflict misses. 
+Changing data layout or access patterns to avoid conflicts can also help.
+
+Capacity Misses
+Cause: Insufficient cache size for the working set of data.
+Mitigation: Increasing cache size or optimizing the program to work on smaller subsets of data that fit into the cache.
+
+
+SIMD instructions.
+
+Normally, a CPU processes data one piece at a time (like making one sandwich). With SIMD, the CPU
+ can process multiple pieces of data in parallel with a single instruction 
+ (like making multiple sandwiches at once).
+
+Without SIMD: The CPU adds each pair of numbers one by one.
+With SIMD: The CPU adds several pairs of numbers simultaneously.
+
+Operation: Add
+Data1:      1 2 3 4
+Data2:      5 6 7 8
+Result:     6 8 10 12
+
+Steps:      (1+5) (2+6) (3+7) (4+8)
+
+with SIMD
+Operation: Add
+Data1:      1 2 3 4
+Data2:      5 6 7 8
+Result:     6 8 10 12
+
+Steps:      (1+5) (2+6) (3+7) (4+8) all at once
+
+This means a single instruction operates on multiple data points simultaneously,
+ making operations faster and more efficient.
+
+ want to use
+ 1. consider compiler optimizations.
+ 2. consider using wrappers.
+ 
+
+ -----------------------------------------------------------------------
+
+1.  task-clock (msec) :
+   -  Description : The total time (in milliseconds) the CPU spent executing the command.
+   -  Interpretation : Lower values indicate less CPU time was needed to complete the task.
+
+2.  context-switches :
+   -  Description : The number of context switches that occurred.
+   -  Interpretation : Context switches can introduce overhead. A high number of context switches might indicate frequent task switching, potentially affecting performance.
+
+3.  cpu-migrations :
+   -  Description : The number of times processes were migrated from one CPU to another.
+   -  Interpretation : CPU migrations can cause performance degradation due to cache misses and other overhead.
+
+4.  page-faults :
+   -  Description : The number of page faults that occurred.
+   -  Interpretation : Page faults happen when the program accesses memory that is not in the physical memory (RAM). Lower values are generally better.
+
+5.  cycles :
+   -  Description : The number of CPU cycles used.
+   -  Interpretation : This is a raw measure of the CPU's workload. It can be used to understand how much processing power was needed.
+
+6.  instructions :
+   -  Description : The number of instructions executed by the CPU.
+   -  Interpretation : This indicates the amount of work done. Coupled with cycles, it helps calculate the efficiency of the CPU (instructions per cycle).
+
+7.  insn per cycle :
+   -  Description : Instructions per cycle (IPC), calculated as `instructions / cycles`.
+   -  Interpretation : Higher IPC values indicate more efficient CPU usage. 
+   Typical values are between 0.5 and 2, depending on the workload and CPU.
+
+8.  branches :
+   -  Description : The number of branch instructions executed.
+   -  Interpretation : Branch instructions include jumps, calls, and returns.
+    A higher number of branches might indicate complex control flow.
+
+9.  branch-misses :
+   -  Description : The number of mispredicted branches.
+   -  Interpretation : Lower values are better. High branch misprediction rates can degrade
+    performance as the CPU might have to roll back and redo work.
+
+10.  seconds time elapsed :
+    -  Description : The total wall-clock time taken to complete the command.
+    -  Interpretation : This includes all time the command was running,
+     regardless of CPU utilization. Lower values indicate faster completion.
+
+
+
+To interpret the performance of the `ls` command based on the given `perf stat` output:
+
+-  CPU Utilization : The `task-clock` shows that the CPU spent a very short time on this task (0.155411 msec), and only 0.037 CPUs were utilized, indicating that `ls` is not CPU-intensive.
+-  Efficiency : The IPC (instructions per cycle) is 1.49, which is quite efficient.
+-  Context Switches and Migrations : Both context switches and CPU migrations are 0, indicating no overhead from task switching or CPU migrations.
+-  Page Faults : There were 119 page faults, which is relatively low and indicates minimal memory access issues.
+
+
+---------------------------------------------------------------------
+
+1. Reduce Branches:
+Minimize the number of conditional branches in critical code paths, especially in performance-critical loops.
+Replace conditional branches with arithmetic operations or bitwise operations where possible.
+2. Use Likely Branch Outcomes:
+Use compiler hints like __builtin_expect in GCC or __assume in MSVC to provide hints to the compiler about the likely outcome of a branch.
+Example: if (__builtin_expect(condition, 1)) { /* Likely branch  
+3. Optimize Branch Predictability:
+Organize code to improve branch predictability. For example, arrange if-else conditions in the order of their likelihood.
+Avoid complex branching conditions or nested branches.
+4. Use Loop Unrolling and Loop Tiling:
+Unroll loops and apply loop tiling to reduce the number of conditional branches and improve branch prediction accuracy.
+5. Minimize Branch Mispredict Penalty:
+Reduce the impact of branch mispredictions by ensuring that the code following a branch is independent and does not rely heavily on the branch outcome.
+Avoid long dependency chains that can be disrupted by branch mispredictions.
+6. Profile and Analyze:
+Profile your code using performance analysis tools like perf or profilers provided by IDEs.
+Identify hotspots and areas with high branch misprediction rates.
+Refactor or optimize the code based on profiling results.
+7. Use Compiler Optimization Flags:
+Enable compiler optimizations (-O2, -O3 in GCC/Clang) to allow the compiler to perform optimizations, including branch prediction optimizations.
+Use profile-guided optimization (PGO) if available, which uses runtime profiling data to guide optimizations, including branch prediction hints.
+8. SIMD Vectorization:
+Use SIMD instructions and data parallelism to reduce the impact of branches in performance-critical code.
+SIMD instructions operate on multiple data elements simultaneously, reducing the number of branches needed for loop iterations.
+9. Consider Architecture-Specific Optimizations:
+Research and apply architecture-specific optimizations that can improve branch prediction on the target CPU architecture.
+Some CPUs have specific instructions or features for improving branch prediction, such as Intel's branch hints (BHT, BTB, BHTCTRL) or ARM's conditional execution.
+
+
+
+
+
+---------------------------------------------
+Secure coding practices.
+
+ Input Validation
+Sanitize Inputs: Always validate and sanitize inputs from untrusted sources to prevent injection attacks.
+Use Safe Functions: Prefer functions that limit input size, like snprintf over sprintf
+
+#include <iostream>
+#include <string>
+
+void secureInput(std::string &input) {
+    if (input.length() > 100) { // Example validation
+        std::cerr << "Input too long!" << std::endl;
+        exit(1);
+    }
+}
+
+int main() {
+    std::string userInput;
+    std::getline(std::cin, userInput);
+    secureInput(userInput);
+    std::cout << "Input is safe to use." << std::endl;
+    return 0;
+}
+
+
+
+
+Avoid Buffer Overflows
+Bounds Checking: Always check the bounds of arrays and buffer sizes.
+Use Safe Libraries: Utilize the C++ Standard Library and safe container classes like std::vector.
+
+#include <vector>
+
+void processVector(const std::vector<int>& vec) {
+    for (size_t i = 0; i < vec.size(); ++i) {
+        std::cout << vec[i] << std::endl;
+    }
+}
+
+
+
+
+
+Avoid Manual Memory Management: 
+Use smart pointers (std::unique_ptr, std::shared_ptr) to manage resource ownership and avoid memory leaks.
+RAII (Resource Acquisition Is Initialization): Encapsulate resource management in objects to ensure resources are released appropriately.
+
+
+ Secure Use of Pointers
+Initialize Pointers: Always initialize pointers to nullptr.
+Avoid Dangling Pointers: Ensure pointers are not left pointing to deallocated memory.
+
+int* safePointer() {
+    int* ptr = new int(5);
+    delete ptr;
+    ptr = nullptr; // Avoids dangling pointer
+    return ptr;
+}
+
+
+
+
+Handle Errors and Exceptions
+Use Exceptions: Utilize C++ exception handling to manage errors instead of error codes.
+Catch Specific Exceptions: Catch specific exceptions rather than using a catch-all handler.
+
+
+#include <iostream>
+#include <stdexcept>
+
+void riskyFunction() {
+    if (/* some condition */) {
+        throw std::runtime_error("An error occurred");
+    }
+}
+
+int main() {
+    try {
+        riskyFunction();
+    } catch (const std::runtime_error& e) {
+        std::cerr << "Caught runtime_error: " << e.what() << std::endl;
+    }
+    return 0;
+}
+
+
+
+
+cpp
+
+ Secure Coding Practices for Classes
+Rule of Five: Implement the destructor, copy constructor, copy assignment operator, move constructor, and move assignment operator when managing resources.
+Encapsulation: Use private data members and provide controlled access through public member functions.
+
+
+#include <iostream>
+
+class Resource {
+public:
+    Resource() : data(new int(5)) {}
+    ~Resource() { delete data; }
+
+    Resource(const Resource& other) : data(new int(*other.data)) {}
+    Resource& operator=(const Resource& other) {
+        if (this == &other) return *this;
+        delete data;
+        data = new int(*other.data);
+        return *this;
+    }
+
+    Resource(Resource&& other) noexcept : data(other.data) {
+        other.data = nullptr;
+    }
+    Resource& operator=(Resource&& other) noexcept {
+        if (this == &other) return *this;
+        delete data;
+        data = other.data;
+        other.data = nullptr;
+        return *this;
+    }
+
+private:
+    int* data;
+};
+
+
+
+
+Use Modern C++ Features
+Auto Keyword: Use auto for type inference to reduce errors from incorrect type declarations.
+Range-based for Loops: Use range-based for loops to avoid common loop errors.
+
+#include <vector>
+
+void processVector(const std::vector<int>& vec) {
+    for (const auto& elem : vec) {
+        std::cout << elem << std::endl;
+    }
+}
+
+
+
+
+Avoid Undefined Behavior
+Avoid Use of Uninitialized Variables: Always initialize variables before use.
+Avoid Type Punning: Use std::variant or std::any for safe type handling.
+
+#include <variant>
+#include <iostream>
+
+void handleVariant() {
+    std::variant<int, float> var;
+    var = 10;
+    std::cout << std::get<int>(var) << std::endl;
+}
+
+
+
+
+Thread Safety
+Use Mutexes: Protect shared resources with mutexes to avoid race conditions.
+Thread-safe Libraries: Use thread-safe libraries and data structures.
+#include <iostream>
+#include <thread>
+#include <mutex>
+
+std::mutex mtx;
+
+void safePrint(const std::string& msg) {
+    std::lock_guard<std::mutex> lock(mtx);
+    std::cout << msg << std::endl;
+}
+
+void threadFunction() {
+    safePrint("Hello from thread");
+}
+
+int main() {
+    std::thread t1(threadFunction);
+    std::thread t2(threadFunction);
+    t1.join();
+    t2.join();
+    return 0;
+}
+
+
+
+
+
+Structured Programming: Use structured programming constructs like loops and functions instead of goto.
+#include <iostream>
+
+void process(int value) {
+    if (value < 0) {
+        std::cerr << "Invalid value" << std::endl;
+        return;
+    }
+    std::cout << "Processing value: " << value << std::endl;
+}
+
+
+
+
+
+
+
+
+
+

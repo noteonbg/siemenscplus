@@ -9,7 +9,7 @@ which can improve compilation times and reduce code bloat.
 
 */
 
-#if 0
+#if 1
 
 // ElectronicComponent.h
 #ifndef ELECTRONICCOMPONENT_H

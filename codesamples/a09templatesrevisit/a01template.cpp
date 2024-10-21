@@ -69,7 +69,10 @@ int sort(char freak[], int length)
 }
 
 
-#if 0
+
+
+
+#if 1
 
 // Generic simulate function template
 template <typename CircuitType>

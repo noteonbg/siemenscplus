@@ -19,7 +19,7 @@ int main() {
     std::cout << "sumInt(true, 2010): " << sumInt(true, 2010) << std::endl;
     std::cout << "sumGen(true, 2010): " << sumGen(true, 2010) << std::endl;
     std::cout << "sumDec(true, 2010): " << sumDec(true, 2010) << std::endl; 
-    std::cout << "sumTem(true, 2010): " << sumTem(true, 2010) << std::endl; 
+    std::cout << "sumTem(true, 2010): " << sumTem(201, 2010) << std::endl; 
     
     std::cout << std::endl;
     

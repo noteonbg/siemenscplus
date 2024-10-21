@@ -1,0 +1,253 @@
+1. you see any thread code syntax. remove that syntax and
+see whether it makes any difference in the code..
+
+c++ in 1995
+c++ in 2024
+nobody can use complete c++, we always have to choose a subset
+of c++ to use in our code..
+
+
+
+
+
+threads..
+1. thread coordination
+2. semaphore..
+3. how to avoid deadlocks.
+4. how to avoid monopoly of a particular thread..
+
+we need to coordinate two threads.
+after thread x has done the job then thread y should do some job..
+why use threads.
+
+do job x
+do job y..
+
+how many threads we have..
+one thread has to do some job and tell the other thread
+hey i completed the job..
+
+if my job involves lot of threads, read os basics on threads
+and then come to language...
+
+
+
+	we are working on X, X needs Y we dont know Y..
+	question how to learn Y with intent to solve X and not do phd on Y.
+
+
+   typedef int counterInt;
+
+Threads.
+1. parallel execution within a process.
+2. makes things faster... ok.. measure it.. with threads without threads.
+3. before locking things up... prove multiple threads and resource gets spoilt if multiple
+threads access it.
+4. then think of use case for condition variable, semaphore...
+5. why do we readlocks..
+
+
+
+templates.
+1. family of functions or classes.
+2. template specialization
+3. template instantiation.
+4. explicitly instantiate the template.
+5. creating template aliasing..
+6. perfect forwarding...
+7. how to deal with templates whose class or function take variable number of arguments..
+what is our logic.. some function takes variable number of arguments, which is templatized.
+how do you process these arguments..
+
+we are going to write templatized function that takes variable number of arguments ok..
+think how will you access individual elements..
+
+in code base.. just see do you encounter a templatized function which takes variable
+number of arguments...  and how do you know the syntax..
+
+template <typename First, typename... Rest> void print(const First& first, const Rest&... rest)
+defining the thing..
+
+unpacking the variable number of arguments..
+rest...
+
+parameter packs.. how to get each element in the parameter pack..
+1. edge case.. single element.
+2. fold expressions..
+
+1. explicit instnation
+2. aliasing for templates.
+
+give an example of a project scenario
+where you need a template function with variable number of argumetns of different types
+and what do you plan do with them inside the function.
+
+
+
+
+what we expect is template creation ( declaration +definition) both will be in
+the header file..  --X
+
+definition of function is present in a separate .cpp  --Y
+
+then we make a library.... Y becomes readonly..
+
+Z where we are using this template function, Z person 
+
+
+we know string is an alias basic_string.
+
+using string = std::basic_string<char>;  
+template class Multiplexer<string>;
+
+
+
+
+string abc;  // string class is created.
+or is it already instiated in the header..
+
+x.h
+
+x.cpp  -- lib
+template function definition  -- here
+must  have instantiated the templat in some use cses.. here itself
+
+
+use.cpp  -- where are planning to use x.h
+he has to use the template only in the way x.cpp has already decided..
+use.cpp guy cannot instantiate in any way..
+
+example..
+1. poc.h  -- write a templatized function which takes an argument and prints it.
+write only declaration here..
+
+2. poc.cpp -- here write the template function definition 
+
+3. convert poc.cpp into a static library.. -- 
+
+4. write main.cpp include poc.h, and try calling the function with some datype int..
+compile main.cpp and ask to link to the libary created at 2.. and dont compile 2 again..
+
+see what happens..
+
+1. keep your priority 
+2. remember template explicit instantation and remember template aliasing..
+3. we have "heard" some story on parameter packs.. in templates.. fold expressions..
+
+
+translation unit..
+
+template class.. ( want to use it for Datatype X, Y and Z ) 
+
+Practicals
+
+please run all the thread programs and see whether it works
+and are you able to understand..
+for the program a08promise.cpp
+
+1. measure time taken by promise code and replace it with async.
+and measure time taken again...
+
+2. in a09check.cpp and a10check.cpp see do you want to remove
+anything from the code.. does it make a difference...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

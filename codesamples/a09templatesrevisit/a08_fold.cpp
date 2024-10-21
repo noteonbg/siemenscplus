@@ -1,5 +1,6 @@
 #if 0
 
+#include <iostream>
 
 template <typename... Items>
 void printItems(Items... items) {
@@ -14,7 +15,7 @@ int main() {
 
 #endif
 
-#if 0
+#if 1
 
 #include <iostream>
 

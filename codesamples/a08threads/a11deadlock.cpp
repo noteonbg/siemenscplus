@@ -9,7 +9,7 @@ std::mutex toolB;
 void machineA();
 void machineB();
 
-#if 0
+#if 1
 void machineA() {
     std::cout << "Machine A: Trying to acquire Tool A...\n";
     std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Simulate work
@@ -54,7 +54,7 @@ int main() {
     return 0;
 }
 
-#if 1
+#if 0
 
 void machineA() {
     std::cout << "Machine A: Trying to acquire Tool A...\n";

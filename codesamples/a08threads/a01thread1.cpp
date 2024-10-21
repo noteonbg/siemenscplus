@@ -5,10 +5,11 @@
 
 key concepts
 
-what do you want to do in a thread..and what job to do .. raw thread async
+what do you want to do in a thread.... raw thread or async
 Mutex: To protect shared data (e.g., the simulation results).
-Semaphore: To manage access to limited resources (e.g., a limited number of simulation threads).
 Condition Variable: To notify when a component's state has changed, allowing dependent components to re-evaluate.
+Semaphore: To manage access to limited resources (e.g., a limited number of simulation threads).
+
 
 */
 
