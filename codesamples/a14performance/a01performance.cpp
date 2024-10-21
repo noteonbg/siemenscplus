@@ -10,6 +10,31 @@ https://web.cecs.pdx.edu/~karavan/perf/book_gprof.html
 perf stat -B -e cache-misses,branches ./hello
 
 
+sudo perf  report -f
+perf record ./executable
+g++ -g  -oexecutable source.cpp
+
+g++ -fsanitize=thread -g -o binary source.cpp
+
+
+g++ -pg -o binary binary.cpp
+
+./binary  --run the program
+
+gprof binary gmon.out > profile.txt
+
+see the content of profile.txt
+
+
+
+
+
+
+
+
+
+
+
 
 
 

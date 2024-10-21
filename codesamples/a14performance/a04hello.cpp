@@ -138,21 +138,29 @@ int main() {
 /*
 
 
-Certainly! Let's dive into the concept of **Application Binary Interface (ABI)** in C++.
+concept of **Application Binary Interface (ABI)** in C++.
 
 1. **Definition**:
-   - The **ABI** defines the **low-level details** that allow **separately compiled modules** (such as libraries and executables) to **work together**.
-   - It specifies how functions' arguments are passed, return values retrieved, data types, size, alignment, and more.
-   - Essentially, the ABI bridges the gap between **compiled code** and **external libraries**.
+   - The **ABI** defines the **low-level details** that allow **separately compiled modules** 
+   (such as libraries and executables) to **work together**.
+   - It specifies how functions' arguments are passed, return values retrieved, 
+   data types, size, alignment, and more.
+   - Essentially, the ABI bridges the gap between **compiled code** and 
+   **external libraries**.
 
 2. **Key Points**:
    - **API vs. ABI**:
-     - **API (Application Programming Interface)**: Defines the **order of function calls** and their **parameters** (high-level).
-     - **ABI**: Specifies the **mechanics** of how these calls are implemented at the **binary level** (registers, stack, etc.).
-   - **C++ Name Mangling**:
+     - **API (Application Programming Interface)**: Defines the
+      **order of function calls** and their **parameters** (high-level).
+
+     - **ABI**: Specifies the **mechanics** of how these calls are
+      implemented at the **binary level** (registers, stack, etc.).
+   - 
+   **C++ Name Mangling**:
      - C++ compilers encode function names (including argument types) into a unique format (name mangling) to handle function overloading and namespaces.
      - Different compilers may use different name mangling schemes, affecting ABI compatibility.
-   - **Stability and Compatibility**:
+   - 
+   **Stability and Compatibility**:
      - A **stable ABI** ensures that separately compiled modules can interoperate even if compiled with different versions of the same compiler.
      - Without a stable ABI, all parts of a program must be compiled with the **same version** of the **same compiler**³.
 

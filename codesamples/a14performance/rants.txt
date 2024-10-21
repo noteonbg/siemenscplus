@@ -59,10 +59,6 @@
 	 genrally assume c++ programemrs dont have good theory background on OOPs.
 	 
 	 
-	 we take a  break for 11.22 Am we will join back..
-	 
-	 check 
-	 1. device program under three circumstances.
 	 
 	 1. no classes.
 	 2. with class.
@@ -76,7 +72,6 @@
 	 2. perf command see whether output you are getting.
 	 3.simd instructions.. check whther how much time it takes.
 	 4. if condition optimization.
-	 
 	 5. calculator program...
 	 
 	 
@@ -97,9 +92,7 @@
 	 7. std library consider using range 
 	 8. read from official source..
 	 
-	 Thank you
-	 vasu.lv@gmail.com
-	 9449012333
+	 
 	 
 	 problem solving.
 	 1. lower the cost of failure
